@@ -1,0 +1,36 @@
+version: '3'
+services:
+  client:
+    image: e-commerce-client
+    stdin_open: true
+    port:
+      - "3000:3000"
+    networks:
+      - Mern-app
+    depends_on:
+      - server
+  server:
+    image: e-commerce-server
+    port:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - Mern-app
+  db:
+    image: mongo
+    restart: always
+    port:
+      - "27017:27017"
+    networks:
+      - Mern-app
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  Mern-app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
