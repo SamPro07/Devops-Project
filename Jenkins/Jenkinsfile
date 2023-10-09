@@ -2,6 +2,80 @@ pipeline{
     agent{
         label "AWS-Agent"
     }
+    
+    stage {
+        stage('Checkout') {
+            step {
+                // Check out the code from the Git repository
+                checkout scm
+            }
+        }
+    }
 
-   
+    stage ('Build Docker Image') 
+    {
+        step
+        {
+            // Navigate to the directory containing your Docker Compose file
+            dir('/Devops-Project') 
+            {
+                // Build the Docker image using Docker Compose
+                sh 'docker-compose build'
+            }
+        }
+    }
+
+    stage('Terraform Create Resources') 
+    {
+        steps {
+
+            step {
+                // Navigate to the directory containing your Terraform configuration files
+                dir('/Devops-Project/Terraform') {
+                    // Initialize Terraform (downloads providers and modules)
+                    sh """
+                     terraform init
+                     terraform plan -out=tfplan
+                     terraform apply tfplan -auto-approve
+                    """
+                }
+            }
+         
+        }
+    }
+
+    stage ("Create ECR Registries")
+    {
+        steps{
+            sh aws ecr create-repository --repository-name staging_enviroment
+            sh aws ecr create-repository --repository-name production_enviroment
+        }
+    }
+
+    stage ("Push Docker Images To Staging Repo")
+    {
+        steps{
+            sh """
+             aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/z1i1x5w6
+             docker tag e-commerce-client:latest public.ecr.aws/z1i1x5w6/staging_enviroment:latest
+             docker tag e-commerce-server:latest public.ecr.aws/z1i1x5w6/staging_enviroment:latest
+             docker push public.ecr.aws/z1i1x5w6/staging_enviroment:latest
+            """
+        }
+    }
+
+
+    stage("Deploy Application On Kubernetes Cluster"){
+        
+        step {
+
+            dir('/Devops-project/Jenkins') {
+               sh 'chmod +x ./Deployment.sh'
+               sh './Deployment.sh'
+            }
+        }
+    }
+
 }
+
+

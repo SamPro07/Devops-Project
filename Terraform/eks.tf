@@ -103,7 +103,7 @@ resource "aws_eks_node_group" "nodes_general" {
    instance_types = [ "t3.small" ]
 
    labels = {
-     role = "nodes-general"
+     tier = "front-end"
    }
 
    version = "1.18"
