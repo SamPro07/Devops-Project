@@ -7,3 +7,9 @@ The Idea behind this project was to to create a pipline for deploying a three ti
 
   
   ![](Jenkins/Diagram-1.png)
+
+
+The Diagram above to describing the following:
+
+* Developers Commit and push the code to a repository.
+* 
