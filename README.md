@@ -11,10 +11,10 @@ The Idea behind this project was to to create a pipline for deploying a three ti
 
 The Diagram above describes the following:
 
-* Developers Commit and push the code to a repository.
-* The Jenkins Server picks up on a webhook trigger.
+* Developers commit and push the code to a repository.
+* The Jenkins server picks up on a webhook trigger.
 * Jenkins then clones the repository.
-* AWS Resources are provisioned through Terraform via jenkins script.
+* AWS resources are provisioned through Terraform via jenkins script.
 * Jenkin Then builds Docker images for the application.
 * Jenkins then deploys the image onto a staging enviroment where tests are applied.
 * If the test result all check out then Jenkins then pushes the Docker images to ECR Repository.
