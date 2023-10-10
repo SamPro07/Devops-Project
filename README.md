@@ -21,3 +21,6 @@ The Diagram above describes the following:
 * Kubernetes Manifest files are then deployed for EKS cluster.
 * Application is then deployed on the EKS cluster.
 * AWS CloudWatch Then monitors the entire infrastructure. 
+
+
+![](Jenkins/Architecture.png)
