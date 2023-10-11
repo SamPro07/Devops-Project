@@ -23,4 +23,4 @@ The Diagram above describes the following:
 * AWS CloudWatch Then monitors the entire infrastructure. 
 
 
-![](Jenkins/Architecture.png)
+
