@@ -39,7 +39,7 @@ Before using this DevOps pipeline, make sure you have the following prerequisite
 
 ## Pipeline Configuration
 
-1. Clone this repository in a EC2 Instance where Jenkins is setted up & Configured:
+1. Clone this repository in a EC2 instance where Jenkins is setted up & configured:
 
     ```bash
     git clone https://github.com/your-username/your-repo.git
