@@ -72,7 +72,7 @@ You can customize this pipeline to fit your specific needs. Here are some ways t
 - Change the target deployment environment (e.g., AWS, Kubernetes, etc.) by modifying the deployment scripts in the `deploy/` directory.
 - Add more tests or integrations as needed.
 
-  ![](Jenkins/Architecture2.png)
+![](Jenkins/Architecture2.png)
 
 ## Support
 
