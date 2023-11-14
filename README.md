@@ -66,9 +66,10 @@ Before using this DevOps pipeline, make sure you have the following prerequisite
 
 ## Customization
 
-You can customize this pipeline to fit your specific needs. Here are some ways to do that:
+You can customize this pipeline or resources to fit your specific needs. Here are some ways to do that:
 
 - Modify the Jenkinsfile to include additional build and deployment steps.
+- Modify the Terraform File to add security features.
 - Change the target deployment environment (e.g., AWS, Kubernetes, etc.) by modifying the deployment scripts in the `deploy/` directory.
 - Add more tests or integrations as needed.
 
