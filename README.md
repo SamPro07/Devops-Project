@@ -39,7 +39,7 @@ Before using this DevOps pipeline, make sure you have the following prerequisite
 
 ## Pipeline Configuration
 
-1. Clone this repository:
+1. Clone this repository in a EC2 Instance where Jenkins is setted up & Configured:
 
     ```bash
     git clone https://github.com/your-username/your-repo.git
@@ -74,7 +74,7 @@ You can customize this pipeline to fit your specific needs. Here are some ways t
 
 ## Support
 
-If you encounter any issues or have questions, feel free to [open an issue](https://github.com/your-username/your-repo/issues) or [contact us](mailto:your-email@example.com).
+If you encounter any issues or have questions, feel free to [open an issue](https://github.com/SamPro07/Devops-Project/issues) 
 
 ---
 
